@@ -72,7 +72,7 @@ if [ -f $BUILD_DIR/Gemfile ]; then
   $BUILD_DIR/.gems/bin/bundle install --binstubs=$BUILD_DIR/.gems/bin --path=$BUILD_DIR/.gems | indent
 fi
 
-$BUILD_DIR/.gems/bin/jekyll build | indent
+JEKYLL_ENV=production $BUILD_DIR/.gems/bin/jekyll build | indent
 if [ -f sass/style.scss ]; then
   $BUILD_DIR/.gems/bin/sass sass/style.scss style.css | indent
 fi
